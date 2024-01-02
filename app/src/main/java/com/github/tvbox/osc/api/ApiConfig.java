@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.Spider;
@@ -46,6 +47,9 @@ import java.util.Map;
  * @description:
  */
 public class ApiConfig {
+
+    private static final String TAG = "ApiConfig";
+
     private static ApiConfig instance;
     private LinkedHashMap<String, SourceBean> sourceBeanList;
     private SourceBean mHomeSource;
@@ -104,6 +108,7 @@ public class ApiConfig {
                     public void onSuccess(Response<String> response) {
                         try {
                             String json = response.body();
+                            Log.d(TAG, "apiUrl response: " + json);
                             parseJson(apiUrl, response.body());
                             try {
                                 File cacheDir = cache.getParentFile();

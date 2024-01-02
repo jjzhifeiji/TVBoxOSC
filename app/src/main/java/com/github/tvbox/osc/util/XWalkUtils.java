@@ -2,7 +2,10 @@ package com.github.tvbox.osc.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.blankj.utilcode.util.DeviceUtils;
 
 import org.xwalk.core.XWalkInitializer;
 
@@ -17,6 +20,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class XWalkUtils {
+
+
+    private static final String TAG = "XWalkUtils";
 
     private static XWalkInitializer xWalkInitializer = null;
 
@@ -164,6 +170,13 @@ public class XWalkUtils {
             Class cls = Class.forName("org.xwalk.core.XWalkEnvironment");
             Method method = cls.getMethod("getRuntimeAbi");
             String obj = (String) method.invoke(null);
+
+            String[] devices = DeviceUtils.getABIs();
+
+            for (String device : devices) {
+                Log.d(TAG, "getRuntimeAbi: " + device);
+            }
+
             switch (obj) {
                 case "arm64-v8a": {
                     result = "arm64";

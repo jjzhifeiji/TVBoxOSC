@@ -12,6 +12,8 @@ import com.github.tvbox.osc.util.PlayerHelper;
 import com.kingja.loadsir.core.LoadSir;
 import com.orhanobut.hawk.Hawk;
 
+import java.util.ArrayList;
+
 import me.jessyan.autosize.AutoSize;
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
@@ -53,6 +55,12 @@ public class App extends MultiDexApplication {
         if (!Hawk.contains(HawkConfig.PLAY_TYPE)) {
             Hawk.put(HawkConfig.PLAY_TYPE, 1);
         }
+
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("https://agit.ai/relax/adcc/raw/branch/master/tvbox.json");
+        list.add("http://pandown.pro/tvbox/tvbox.json");
+        Hawk.put(HawkConfig.API_HISTORY, list);
+
     }
 
     public static App getInstance() {
