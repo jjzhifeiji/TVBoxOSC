@@ -89,3 +89,5 @@ lint/tmp/
 /adb.exe
 /LTDecodeNew3.exe
 /.git*
+/.idea
+
