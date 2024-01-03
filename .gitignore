@@ -88,6 +88,8 @@ lint/tmp/
 /LTDecodeSpace
 /adb.exe
 /LTDecodeNew3.exe
-/.git*
 /.idea
-
+/.git
+/.github/
+/app/build
+/player/build
